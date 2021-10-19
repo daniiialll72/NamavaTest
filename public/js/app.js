@@ -2009,7 +2009,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('api/cards/register', {
         'code_number': this.code_number
       }).then(function (res) {
-        alert(res.data);
+        console.log(res.data);
+        alert(res.data.status);
+        alert('Your account has been charged ' + res.data.card_duration + ' days');
+        location.reload();
       });
     }
   }
@@ -2097,7 +2100,6 @@ __webpack_require__.r(__webpack_exports__);
   computed: {},
   methods: {
     shopAssignment: function shopAssignment() {
-      // var result = confirm("Want to delete?");
       axios.post('api/cards/shopAssign', {
         'duration': this.length,
         'sale_id': this.sale_id,
@@ -2105,7 +2107,8 @@ __webpack_require__.r(__webpack_exports__);
         'amount': this.amount
       }).then(function (res) {
         console.log(res.data);
-        alert(res.data); // location.reload()
+        alert(res.data);
+        location.reload();
       });
     }
   }
@@ -2245,7 +2248,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_4__.default({
   el: '#app',
   router: router,
   data: {
-    invoices: [],
     addComp: false
   }
 });
@@ -38347,7 +38349,7 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                            Register\n                        "
+                      "\n                        Register\n                    "
                     )
                   ]
                 )

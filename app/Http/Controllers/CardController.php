@@ -90,15 +90,15 @@ class CardController extends Controller
     public function register(Request $request)
     {
         $card = Card::where('code', $request->code_number)->first();
-        if($card && $card->active == 1){
+        if($card && $card->sale_id && $card->shop_id && $card->active == 1){
             $involves = array('owner' => $card->owner_id, 'sale' => $card->sale_id, 'shop' => $card->shop_id);
 
             $this->balanceHandler($involves,$card->price);
             $card->active = 0;
             $card->save();
-            return response()->json('activation successful', 200);
+            return response()->json(['status'=>'activation successful','card_duration' => $card->duration], 200);
         }else{
-            return response()->json('card not found or already used', 401);
+            return response()->json('card not found or already used', 200);
         }
 
     }

@@ -57,7 +57,6 @@ const app = new Vue({
     el: '#app',
     router,
     data: {
-        invoices: [],
         addComp : false
     },
 
