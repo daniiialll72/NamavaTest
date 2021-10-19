@@ -23,10 +23,12 @@ window.Vue = require('vue').default;
 
 
 //-------------components
-import AddInvoiceComponent from './components/AddInvoiceComponent.vue'
-import InvoiceComponent from './components/InvoiceComponent.vue'
+import PurchaseComponent from './components/PurchaseComponent.vue'
+import NamvaDashboardComponent from './components/NamvaDashboardComponent.vue'
+import SalesDashboardComponent from './components/SalesDashboardComponent.vue'
+import WalletsComponent from './components/WalletsComponent.vue'
 
-Vue.component('invoice-component', require('./components/InvoiceComponent.vue').default);
+Vue.component('invoice-component', require('./components/NamvaDashboardComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -40,8 +42,10 @@ Vue.use(Router);
 
 //-------------routes
 const routes = [
-    {path: '/', component: InvoiceComponent},
-    {path: '/add', component: AddInvoiceComponent},
+    {path: '/namava/dashboard', component: NamvaDashboardComponent},
+    {path: '/sales/dashboard', component: SalesDashboardComponent},
+    {path: '/purchase', component: PurchaseComponent},
+    {path: '/wallet', component: WalletsComponent},
 
 ];
 

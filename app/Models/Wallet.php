@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Invoice extends Model
+class Wallet extends Model
 {
     use HasFactory;
 
@@ -14,4 +14,9 @@ class Invoice extends Model
         'price',
         'quantity',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
