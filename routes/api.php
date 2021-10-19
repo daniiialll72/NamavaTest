@@ -18,6 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::any('/getInvoicesData', [App\Http\Controllers\InvoiceController::class, 'index']);
-Route::any('/invoices/add', [App\Http\Controllers\InvoiceController::class, 'create']);
-Route::any('/invoices/delete', [App\Http\Controllers\InvoiceController::class, 'destroy']);
+Route::any('/getUsersData', [App\Http\Controllers\UserController::class, 'index']);
+
+Route::any('/cards/add', [App\Http\Controllers\CardController::class, 'generate']);
+Route::any('/cards/salesAssign', [App\Http\Controllers\CardController::class, 'saleAssignment']);
+Route::any('/cards/shopAssign', [App\Http\Controllers\CardController::class, 'shopAssignment']);
+Route::any('/cards/register', [App\Http\Controllers\CardController::class, 'register']);
+
+Route::any('/wallet/index', [App\Http\Controllers\WalletController::class, 'index']);
