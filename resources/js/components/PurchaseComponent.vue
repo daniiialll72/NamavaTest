@@ -15,12 +15,12 @@
                         </div>
                     </div>
                     <div class="flex flex-row p-1">
-                            <button
-                                @click="register"
-                                type="button"
-                                class="h-8 w-full flex justify-center items-center py-2 px-4 text-sm font-medium rounded-xl bg-indigo-600 hover:bg-indigo-500 focus:outline-none">
-                                Register
-                            </button>
+                        <button
+                            @click="register"
+                            type="button"
+                            class="h-8 w-full flex justify-center items-center py-2 px-4 text-sm font-medium rounded-xl bg-indigo-600 hover:bg-indigo-500 focus:outline-none">
+                            Register
+                        </button>
                     </div>
                 </form>
             </div>
@@ -32,15 +32,18 @@
     export default {
         data() {
             return {
-                code_number : '',
+                code_number: '',
             }
         },
 
         methods: {
             register() {
                 axios.post('api/cards/register', {'code_number': this.code_number}).then(res => {
-                            alert(res.data)
-                        });
+                    console.log(res.data)
+                    alert(res.data.status)
+                    alert('Your account has been charged ' + res.data.card_duration + ' days')
+                    location.reload();
+                });
             },
 
         }

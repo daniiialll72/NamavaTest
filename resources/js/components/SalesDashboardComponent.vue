@@ -60,7 +60,7 @@
         },
         mounted() {
             axios.get('api/getUsersData').then(res => {
-                    this.users = res.data
+                    this.users = res.data;
                 console.log(this.users)
                 }
             )
@@ -70,11 +70,10 @@
         },
         methods: {
             shopAssignment() {
-                // var result = confirm("Want to delete?");
                 axios.post('api/cards/shopAssign', {'duration': this.length, 'sale_id': this.sale_id, 'shop_id': this.shop_id, 'amount': this.amount}).then(res => {
                         console.log(res.data);
                         alert(res.data);
-                        // location.reload()
+                        location.reload()
                     }
                 )
             }
